@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Map terms Azure to AWS
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Map terms AWS to Azure
+// @version      0.2
+// @description  Display the corresponding AWS-related term near the Azure-related term on the Microsoft documentation site.
 // @author       uemuram
 // @match        https://docs.microsoft.com/*
 // @grant        none
