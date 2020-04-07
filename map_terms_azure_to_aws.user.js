@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Map terms Azure to AWS
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.301
 // @description  Display the corresponding AWS-related term near the Azure-related term on the Microsoft documentation site.
 // @author       uemuram
 // @match        https://docs.microsoft.com/*
@@ -74,6 +74,7 @@
     { 'azure': 'App Center', 'aws': 'Mobile Hub、Mobile SDK、Cognito、AWS Device Farm、Mobile Analytics' },
     { 'azure': 'Xamarin アプリ', 'aws': 'Mobile Hub' },
     { 'azure': 'Virtual Network', 'aws': 'Virtual Private Cloud (VPC)' },
+    { 'azure': '仮想ネットワーク', 'aws': 'Virtual Private Cloud (VPC)' },
     { 'azure': 'Azure VPN Gateway', 'aws': 'AWS VPN Gateway' },
     { 'azure': 'Azure DNS', 'aws': 'Route 53' },
     { 'azure': 'Traffic Manager', 'aws': 'Route 53' },
@@ -157,8 +158,8 @@
   sheet.insertRule("div.tooltip span { display:none; padding:5px; margin:10px 0 0 0px;}", 1);
   sheet.insertRule("div.tooltip:hover span{ display:inline;  position:absolute; border:1px solid #CCC; border-radius:5px; background:#F7F7F7; color:#666; font-size:12px; line-height:1.6em;}", 2);
 
-  var o, b, i;
+  var o, i;
   //フレームが複数ある場合を考慮してmainを再帰的に実行
   while (o = w.frames[i++]) try { main(o) } catch (o) { }
-  replaceTerm(b = w.document.body);
+  replaceTerm(w.document.body);
 })(window);
