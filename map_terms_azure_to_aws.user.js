@@ -5,6 +5,7 @@
 // @description  Display the corresponding AWS-related term near the Azure-related term on the Microsoft documentation site.
 // @author       uemuram
 // @match        https://docs.microsoft.com/*
+// @match        https://qiita.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -155,8 +156,8 @@
   document.head.appendChild(style);
   let sheet = style.sheet;
   sheet.insertRule("div.tooltip {display:inline; border-bottom:solid 1px #87CEFA}", 0);
-  sheet.insertRule("div.tooltip span { display:none; padding:5px; margin:10px 0 0 0px;}", 1);
-  sheet.insertRule("div.tooltip:hover span{ display:inline;  position:absolute; border:1px solid #CCC; border-radius:5px; background:#F7F7F7; color:#666; font-size:12px; line-height:1.6em;}", 2);
+  sheet.insertRule("div.tooltip span {display:none; padding:5px; margin:10px 0 0 0px;}", 1);
+  sheet.insertRule("div.tooltip:hover span {display:inline;  position:absolute; border:1px solid #CCC; border-radius:5px; background:#F7F7F7; color:#666; font-size:12px; line-height:1.6em;}", 2);
 
   var o, i;
   //フレームが複数ある場合を考慮してmainを再帰的に実行
