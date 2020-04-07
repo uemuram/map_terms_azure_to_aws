@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Map terms Azure to AWS
 // @namespace    http://tampermonkey.net/
-// @version      0.301
+// @version      0.302
 // @description  Display the corresponding AWS-related term near the Azure-related term on the Microsoft documentation site.
 // @author       uemuram
 // @match        https://docs.microsoft.com/*
@@ -119,6 +119,10 @@
     { 'azure': 'Media Services', 'aws': 'Elastic Transcoder' },
     { 'azure': 'Logic Apps', 'aws': 'Simple Workflow Service (SWF)' },
     { 'azure': 'Azure Stack', 'aws': 'Outposts' },
+    { 'azure': 'Azure DDoS Protection', 'aws': 'AWS Shield' },
+    { 'azure': 'Network Watcher', 'aws': 'AWS Transit Gateway Network Manager' },
+    { 'azure': 'Notification Hubs', 'aws': 'Amazon Pinpoint' },
+    { 'azure': '可用性ゾーン', 'aws': 'Availability Zones'},
   ]
 
   // ヒットした部分を加工する
