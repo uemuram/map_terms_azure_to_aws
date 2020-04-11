@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Map terms Azure to AWS
 // @namespace    http://tampermonkey.net/
-// @version      0.302
+// @version      0.303
 // @description  Display the corresponding AWS-related term near the Azure-related term on the Microsoft documentation site.
 // @author       uemuram
 // @match        https://docs.microsoft.com/*
@@ -145,10 +145,14 @@
     for (let i = 0; i < l; i++) {
       let child = (children[i]);
       if (child.nodeType == 3 && !/^[ \n\t]+$/.test(child.nodeValue) && child.nodeValue.length > 0) {
-        let newSpan = document.createElement("span");
-        newSpan.innerHTML = replaceTermString(child.nodeValue);
-        r.insertBefore(newSpan, child);
-        child.remove();
+        let newStr = replaceTermString(child.nodeValue);
+        // 書き換えが発生した場合はDOMを変更
+        if(newStr !== child.nodeValue){
+          let newSpan = document.createElement("span");
+          newSpan.innerHTML = newStr;
+          r.insertBefore(newSpan, child);
+          child.remove();
+        }
       } else {
         replaceTerm(child);
       }
