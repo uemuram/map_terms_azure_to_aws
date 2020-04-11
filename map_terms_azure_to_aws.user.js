@@ -122,7 +122,7 @@
     { 'azure': 'Azure DDoS Protection', 'aws': 'AWS Shield' },
     { 'azure': 'Network Watcher', 'aws': 'AWS Transit Gateway Network Manager' },
     { 'azure': 'Notification Hubs', 'aws': 'Amazon Pinpoint' },
-    { 'azure': '可用性ゾーン', 'aws': 'Availability Zones'},
+    { 'azure': '可用性ゾーン', 'aws': 'Availability Zones' },
   ]
 
   // ヒットした部分を加工する
@@ -132,7 +132,9 @@
       if (index >= 0) {
         let beforeStr = str.substring(0, index);
         let afterStr = str.substring(index + termMappings[i].azure.length);
-        return replaceTermString(beforeStr) + '<div class="tooltip">' + termMappings[i].azure + "<span>" + termMappings[i].aws + '</span></div>' + replaceTermString(afterStr);
+        return replaceTermString(beforeStr)
+          + '<div class="tooltip">' + termMappings[i].azure + "<span>" + termMappings[i].aws + '</span></div>'
+          + replaceTermString(afterStr);
       }
     }
     return str;
@@ -147,7 +149,7 @@
       if (child.nodeType == 3 && !/^[ \n\t]+$/.test(child.nodeValue) && child.nodeValue.length > 0) {
         let newStr = replaceTermString(child.nodeValue);
         // 書き換えが発生した場合はDOMを変更
-        if(newStr !== child.nodeValue){
+        if (newStr !== child.nodeValue) {
           let newSpan = document.createElement("span");
           newSpan.innerHTML = newStr;
           r.insertBefore(newSpan, child);
